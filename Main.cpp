@@ -12,6 +12,9 @@ int main()
 	Library L;
 	L.loadLibrary(emptyStr);
 	L.print();
+	L.addToLibrary();
+	L.print();
+	L.saveLibrary();
 
 	system("pause");
 	return 0;

@@ -18,6 +18,7 @@ private:
 		string producer;
 		double price;
 		int year;
+		int position;
 
 		Song* next;
 		Song* prev;
@@ -50,8 +51,10 @@ private:
 		{
 			year = newYear;
 		}
-
-
+		void insert_position(int newPosition)
+		{
+			position = newPosition;
+		}
 	};
 	typedef struct Song* Songptr;
 
@@ -61,11 +64,29 @@ private:
 	int length;
 
 public:
+	//Constructors and Destructors
 	Library();												
 	//Library(const Library &Library);							
 	~Library();	
+
+	//Accessors
+	
+	//Mutators
+	void addToLibrary();
+	void deleteFromLibrary();
+
+	//Other Functions
 	void loadLibrary(string emptyStr);
+	void saveLibrary();
 	void print();
+	void sortByName();
+	void sortByArtist();
+	void sortByGenre();
+	void sortByPrice();
+	void sortByYear();
+	void sortByProducer();
+	void moveCursor();
+	void startCursor();
 };
 
 #endif
