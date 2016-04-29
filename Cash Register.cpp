@@ -39,30 +39,37 @@ void Register::addToTransaction(Library &library)
 
 void Register::processTransaction()
 {
-	double payment;
-
-	cout << left << setw(17) << "Ticket: " << setw(25) << "Song Title"
-		<< setw(25) << "Artist" << setw(20) << "Genre" << setw(25) << "Producer"
-		<< setw(7) << "Price" << setw(7) << "Year" << endl;
-
-	Songptr temp = head;
-
-	while (temp != NULL)
+	if (length != 0)
 	{
-		cout << right << setw(17) << temp->position << left << setw(25) << temp->songName << setw(25) << temp->songArtist <<
-			setw(20) << temp->genre << setw(25) << temp->producer << setw(7) << temp->price << setw(7) << temp->year << endl;
-		temp = temp->next;
+		double payment;
+
+		cout << left << setw(17) << "Ticket: " << setw(25) << "Song Title"
+			<< setw(25) << "Artist" << setw(20) << "Genre" << setw(25) << "Producer"
+			<< setw(7) << "Price" << setw(7) << "Year" << endl;
+
+		Songptr temp = head;
+
+		while (temp != NULL)
+		{
+			cout << right << setw(16) << temp->position << " " << left << setw(25) << temp->songName << setw(25) << temp->songArtist <<
+				setw(20) << temp->genre << setw(25) << temp->producer << setw(7) << temp->price << setw(7) << temp->year << endl;
+			temp = temp->next;
+		}
+
+		cout << endl << right << setw(118) << "Subtotal: " << setw(5) << fixed << setprecision(2) << getSubtotal() << endl;
+		cout << setw(118) << "Tax: " << setw(5) << getTax() << endl;
+		cout << setw(118) << "Total: " << setw(5) << getTotal() << endl;
+
+		cout << setw(118) << "Enter amount of payment: ";
+		cin >> payment;
+		cin.ignore();
+
+		cout << setw(118) << "Change: " << setw(5) << getChange(payment) << endl;
 	}
-	
-	cout << endl << right << setw(117) << "Subtotal: " << setw(6) << fixed << setprecision(2) << getSubtotal() << endl;
-	cout << setw(117) << "Tax: " << setw(6) << getTax() << endl;
-	cout << setw(117) << "Total: " << setw(6) << getTotal() << endl;
-
-	cout << setw(117) << "Enter amount of payment: ";
-	cin >> payment;
-	cin.ignore();
-
-	cout << setw(117) << "Change: " << setw(6) << getChange(payment) << endl;
+	else
+	{
+		cout << "Ticket is empty . . . ";
+	}
 }
 
 double Register::getSubtotal()
