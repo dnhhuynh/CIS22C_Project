@@ -9,7 +9,7 @@ using namespace std;
 
 class Library
 {
-private:
+protected:
 	struct Song
 	{
 		string songName;
@@ -70,6 +70,13 @@ public:
 	~Library();	
 
 	//Accessors
+	string getSongName();
+	string getSongArtist();
+	string getGenre();
+	string getProducer();
+	double getPrice();
+	int getYear();
+	int getPosition();
 	
 	//Mutators
 	void addToLibrary();
@@ -85,7 +92,8 @@ public:
 	void sortByPrice();
 	void sortByYear();
 	void sortByProducer();
-	void moveCursor();
+	void moveCursorUp();
+	void moveCursorDown();
 	void startCursor();
 };
 

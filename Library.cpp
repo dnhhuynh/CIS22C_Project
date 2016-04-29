@@ -85,13 +85,12 @@ void Library::loadLibrary(string emptyStr)
 			S->insert_year(tempInt);
 			S->insert_position(length + 1);
 
-			tail = head = S;
+			tail = head = cursor = S;
 		}
 		else
 		{
 			Songptr S = new Song();
 
-			database.ignore();
 			getline(database, tempString);
 			S->insert_name(tempString);
 			getline(database, tempString);
@@ -118,10 +117,22 @@ void Library::loadLibrary(string emptyStr)
 
 void Library::print()
 {
+	cout << left << setw(17) << "Current Library: " << setw(25) << "Song Title"
+		<< setw(25) << "Artist" << setw(20) << "Genre" << setw(25) << "Producer"
+		<< setw(7) << "Price" << setw(7) << "Year" << endl;
 	Songptr temp = head;
 
 	while (temp != NULL)
 	{
+		if (cursor->position == temp->position)
+		{
+			cout << right << setw(15) << "-> ";
+		}
+		else
+		{
+			cout << setw(15) << "   ";
+		}
+
 		cout << left << setw(2) << temp->position << setw(25) << temp->songName << setw(25) << temp->songArtist <<
 			setw(20) << temp->genre << setw(25) << temp->producer << setw(7) << temp->price << setw(7) << temp->year << endl;
 		temp = temp->next;
@@ -154,7 +165,6 @@ void Library::addToLibrary()
 	string tempString;
 	double tempDouble;
 	int tempInt;
-
 
 	if (length == 0)
 	{
@@ -211,4 +221,68 @@ void Library::addToLibrary()
 		tail = S;
 	}
 	length += 1;
+}
+
+void Library::startCursor()
+{
+	cursor = head;
+}
+
+void Library::moveCursorDown()
+{
+	if (cursor == tail)
+	{
+		return;
+	}
+	else
+	{
+		cursor = cursor->next;
+	}
+}
+
+void Library::moveCursorUp()
+{
+	if (cursor == head)
+	{
+		return;
+	}
+	else
+	{
+		cursor = cursor->prev;
+	}
+}
+
+string Library::getSongName()
+{
+	return cursor->songName;
+}
+
+string Library::getSongArtist()
+{
+	return cursor->songArtist;
+}
+
+string Library::getGenre()
+{
+	return cursor->genre;
+}
+
+string Library::getProducer()
+{
+	return cursor->producer;
+}
+
+double Library::getPrice()
+{
+	return cursor->price;
+}
+
+int Library::getYear()
+{
+	return cursor->year;
+}
+
+int Library::getPosition()
+{
+	return cursor->position;
 }
