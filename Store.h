@@ -46,7 +46,7 @@ private:
 
 	//recursively prints tree values in order from smallest to largest
 
-	void saveStore(Songptr root);
+	void saveStore(Songptr root, fstream &outFile);
 
 public:
 	Store();

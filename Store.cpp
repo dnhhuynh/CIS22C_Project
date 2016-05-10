@@ -25,6 +25,10 @@ void Store::loadStore(string emptyStr)
 	while (!database.eof())
 	{
 		getline(database, newName);
+		if (newName == "")
+		{
+			break;
+		}
 		getline(database, newArtist);
 		getline(database, newAlbum);
 		getline(database, newGenre);
@@ -90,19 +94,15 @@ void Store::print(Songptr root)
 	}
 }
 
-void Store::saveStore(Songptr root)
+void Store::saveStore(Songptr root, fstream &outFile)
 {
-	fstream outFile;
-	outFile.open("Store.txt", ios::out);
-
 	if (root != NULL)
 	{
-		saveStore(root->left);
-		outFile << left << setw(30) << root->songName << setw(30) << root->songArtist << setw(30) << root->songAlbum <<
-			setw(30) << root->songGenre << setw(10) << root->price << setw(10) << root->year << endl;
-		saveStore(root->right);
+		saveStore(root->left, outFile);
+		outFile << root->songName << endl << root->songArtist << endl << root->songAlbum <<
+			endl << root->songGenre << endl << root->price << endl << root->year << endl;
+		saveStore(root->right, outFile);
 	}
-	outFile.close();
 }
 
 void Store::print()
@@ -112,5 +112,10 @@ void Store::print()
 
 void Store::saveStore()
 {
-	saveStore(root);
+	fstream outFile;
+	outFile.open("Store.txt", ios::out);
+
+	saveStore(root, outFile);
+
+	outFile.close();
 }
