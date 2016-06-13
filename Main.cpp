@@ -3,14 +3,15 @@
 #include "BST.h"
 #include <iomanip>
 #include <string>
+#include "List.h"
 
 using namespace std;
 
 string emptyStr;
 
 void storeMenu();
-void registerMenu();
-void playlistMenu();
+void registerMenu(BST*);
+void playlistMenu(BST*);
 void logMenu();
 
 /*********************************************************************************
@@ -19,6 +20,7 @@ void logMenu();
 int main()
 {
 	int option, mainMenu = 1;
+	BST* Playlist = new BST();
 
 	do
 	{
@@ -39,10 +41,10 @@ int main()
 			storeMenu();
 			break;
 		case 2:
-			registerMenu();
+			registerMenu(Playlist);
 			break;
 		case 3:
-			playlistMenu();
+			playlistMenu(Playlist);
 			break;
 		case 4:
 			logMenu();
@@ -90,7 +92,7 @@ void storeMenu()
 			<< "7. Add to Music Store (Admin)" << endl
 			<< "8. Delete from Music Store (Admin)" << endl
 			<< "10. Return to Main Menu" << endl;
-		cout << "Select an option (1-7): ";
+		cout << "Select an option (1-10): ";
 		cin >> option;
 		cin.ignore();
 		system("cls");
@@ -193,23 +195,94 @@ void storeMenu()
 /*********************************************************************************
 								  Register Menu
 *********************************************************************************/
-void registerMenu()
+void registerMenu(BST* Playlist)
 {
-	int mainMenu = 1;
+	string newName, newArtist;
+	double payment;
+	int mainMenu = 1, option;
+	HashTable Store;
+	List* L = new List();
 
+	Store.loadStore(emptyStr);
+	Store.printTable();
 
 	do
 	{
+		cout << "1. Add Song to Transaction" << endl
+			<< "2. Process Transaction" << endl
+			<< "3. Return to Main Menu" << endl;
+		cout << "Select an option (1-3): ";
+		cin >> option;
+		cin.ignore();
+		system("cls");
 
+		switch (option)
+		{
+		case 1:
+		{
+				  cout << "Song Title: ";
+				  getline(cin, newName);
+				  cout << "Song Artist: ";
+				  getline(cin, newArtist);
+				  
+				  if (Store.find(newName, newArtist) == 1)
+				  {
+					  L->insert_tail(Store.findAuthor(newName, newArtist));
+				  }
+				  else
+				  {
+					  cout << "Song was not found in the Musc Store . . ." << endl;
+				  }
+		}
+			break;
+		case 2:
+		{
+				  if (!L->is_empty())
+				  {
+					  L->print();
+					  cout << right << setw(160) << "subtotal: " << L->getSubtotal() << endl;
+					  cout << right << setw(160) << "tax: " << L->getTax() << endl;
+					  cout << right << setw(160) << "total: " << L->getTotal() << endl;
+					  cout << "Cash Payment Amount: ";
+					  cin >> payment;
+					  cin.ignore();
+					  cout << right << setw(160) << "change: " << L->getChange(payment) << endl;
+
+					  while (!L->is_empty())
+					  {
+						  Playlist->insert(L->get_head_title(), L->get_head_artist(), L->get_head_album(), L->get_head_genre(), L->get_head_year(), L->get_head_price(), 1);
+						  L->delete_head();
+					  }
+
+					  delete L;
+				  }
+				  else
+				  {
+					  cout << "Ticket is currently empty . . ." << endl;
+				  }
+		}
+			break;
+		case 3:
+		{
+				  mainMenu = 0;
+				  system("pause");
+		}
+			break;
+		default:
+			cout << "Option selected isn't valid . . ." << endl;
+			break;
+		}
 	} while (mainMenu == 1);
 }
 
 /*********************************************************************************
 								  Playlist Menu
 *********************************************************************************/
-void playlistMenu()
+void playlistMenu(BST* Playlist)
 {
+	Playlist->inOrderPrint();
 
+	system("pause");
 }
 
 /*********************************************************************************

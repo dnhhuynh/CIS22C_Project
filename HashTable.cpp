@@ -169,16 +169,36 @@ void HashTable::printBucket(int index)
 	}
 }
 
-int HashTable::findAuthor(string ntitle)
+int HashTable::find(string ntitle, string nartist)
 {
-	Nodeptr temp = Table[hash(ntitle)];
+	bool found = 0;
+
+	Nodeptr temp = Table[hash(nartist)];
 
 	while (temp != NULL)
 	{
-		if (temp->title == ntitle)
+		if (temp->title == ntitle && temp->artist == nartist)
 		{
-			cout << "Author: " << temp->title << endl;
-			return hash(ntitle);
+			return 1;
+		}
+		else
+		{
+			temp = temp->next;
+		}
+	}
+
+	return 0;
+}
+
+HashTable::Nodeptr HashTable::findAuthor(string ntitle, string nartist)
+{
+	Nodeptr temp = Table[hash(nartist)];
+
+	while (temp != NULL)
+	{
+		if (temp->title == ntitle && temp->artist == nartist)
+		{
+			return temp;
 		}
 		else
 		{
@@ -187,8 +207,7 @@ int HashTable::findAuthor(string ntitle)
 	}
 
 	cout << "Title was not found. . ." << endl;
-
-	return -1;
+	return temp;
 }
 
 void HashTable::loadStore(string emptyStr)
@@ -198,7 +217,7 @@ void HashTable::loadStore(string emptyStr)
 	int newYear;
 
 	ifstream database;
-	database.open("Store.txt");
+	database.open("StoreTest.txt");
 
 	if (database.fail())
 	{

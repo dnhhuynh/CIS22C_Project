@@ -282,7 +282,9 @@ void BST::insert_value(Nodeptr root, string newName, string newArtist, string ne
 
 void BST::inOrderPrint()
 {
+	cout << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(20) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
 	inOrderPrint(root);
+	cout << endl;
 }
 
 void BST::inOrderPrint(Nodeptr root)
@@ -332,7 +334,7 @@ void BST::sort(string emptyStr, int option)
 	int newYear;
 
 	ifstream database;
-	database.open("Store.txt");
+	database.open("StoreTest.txt");
 
 	if (database.fail())
 	{

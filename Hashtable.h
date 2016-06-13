@@ -9,6 +9,22 @@
 using namespace std;
 
 class HashTable {
+protected:
+	struct Node
+	{
+		string title, artist, genre, album;
+		int year;
+		double price;
+		Node* next;
+		Node() : title(""), artist(""), genre(""), album(""), year(0), price(0.0), next(NULL){}
+		Node(Node* temp) : title(temp->title), artist(temp->artist), genre(temp->genre), album(temp->album), year(temp->year), price(temp->price), next(NULL){}
+		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), next(NULL){}
+	};
+
+	typedef struct Node* Nodeptr;
+
+	static const int TABLE_SIZE = 100;
+	Nodeptr Table[TABLE_SIZE];
 
 public:
 	HashTable();
@@ -39,30 +55,14 @@ public:
 	void printBucket(int index);
 	//Prints all items stored at a single bucket
 
-	int findAuthor(string title);
+	Nodeptr findAuthor(string title, string artist);
 	//Searches for an author in the table using the key
 	//returns the index under which the author is stored
 	//returns -1 if the author is not found
+	int find(string title, string artist);
 
 	void loadStore(string emptyStr);
 
 	void saveStore();
-private:
-
-	struct Node
-	{
-		string title, artist, genre, album;
-		int year; 
-		double price;
-		Node* next;
-		Node() : title(""), artist(""), genre(""), album(""), year(0), price(0.0), next(NULL){}
-		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), next(NULL){}
-	};
-
-	typedef struct Node* Nodeptr;
-
-	static const int TABLE_SIZE = 100;
-	Nodeptr Table[TABLE_SIZE];
-
 };
 #endif /* HASHTABLE_H_ */
