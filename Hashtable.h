@@ -25,7 +25,7 @@ public:
 	//inserts a new item into the table
 	// calls the hash function on the key title to determine the correct bucket
 
-	void removeItem(string key); 
+	void removeItem(string name, string key); 
 	//removes the item with the given key
 
 	int numItemsAtIndex(int index);
@@ -55,7 +55,7 @@ private:
 		int year; 
 		double price;
 		Node* next;
-		Node() : title(""), artist(""), genre(""), album(""), year(0), price(0), next(NULL){}
+		Node() : title(""), artist(""), genre(""), album(""), year(0), price(0.0), next(NULL){}
 		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), next(NULL){}
 	};
 
