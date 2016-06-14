@@ -31,8 +31,10 @@ public:
 	List();											//Default Constructor for Class List
 	~List();										//Destructor for Class List
 	void insert_head(string name, string artist, string album, string genre, int year, double price);						//Member Function to create a node with data at the beginning of the list
-	void insert_tail(Nodeptr temp);					//Member Function to create a node with data at the end of the list
+	void insert_tail(string name, string artist, string album, string genre, int year, double price, int index);
+	void insert_tail(Nodeptr temp);	//Member Function to create a node with data at the end of the list
 	void print();									//Member Function to print out all the data within each node in order
+	void printIndex();
 	void print(ofstream& log);
 	string get_head_title() { return head->title; }
 	string get_head_artist() { return head->artist; }
@@ -40,7 +42,7 @@ public:
 	string get_head_genre() { return head->genre; }
 	int get_head_year() { return head->year; }
 	double get_head_price() { return head->price; }
-	string get_head();//Member Function to print out the first node and its data
+	string get_head();								//Member Function to print out the first node and its data
 	string get_tail();								//Member Function to print out the last node and its data
 	int get_length();								//Member Function to print out the length of the list
 	bool is_empty();								//Member Function to determine if the list is empty or not
@@ -49,4 +51,11 @@ public:
 	double getTax();
 	double getChange(double payment);
 	void delete_head();
+	int search(string name, string artist);
+	void setCursor();
+	void moveUp();
+	void moveDown();
+	void play();
+	int loadLibrary(string name, int counter);
+	void saveLibrary(string name);
 };

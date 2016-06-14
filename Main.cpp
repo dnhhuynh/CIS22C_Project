@@ -9,12 +9,14 @@
 #include "User.h"
 #include <vector>
 #include <conio.h>
+#define KEY_UP 72
+#define KEY_DOWN 80
 
 using namespace std;
 
 void storeMenu();
-void registerMenu(BST*);
-void playlistMenu(BST*);
+void registerMenu(List*, int&);
+void playlistMenu(List*);
 void logMenu();
 string currentDateTime();
 int sizeOfUsers();
@@ -35,9 +37,9 @@ int currentUser;
 int main()
 {
 	int option, mainMenu = 1;
-	BST* Playlist = new BST();
 	bool isValid = false, loginScreen = true;
 	loadUsers();
+	int numSongs = 0;
 
 	do
 	{
@@ -58,6 +60,9 @@ int main()
 			}
 		} while (isValid == false);
 
+		List* userLibrary = new List();
+		numSongs = userLibrary->loadLibrary(newUser[currentUser].getUsername(), numSongs);
+
 		do
 		{
 			system("cls");
@@ -77,16 +82,17 @@ int main()
 				storeMenu();
 				break;
 			case 2:
-				registerMenu(Playlist);
+				registerMenu(userLibrary, numSongs);
 				break;
 			case 3:
-				playlistMenu(Playlist);
+				playlistMenu(userLibrary);
 				break;
 			case 4:
 				logMenu();
 				break;
 			case 5:
 				mainMenu = 0;
+				numSongs = 0;
 				break;
 			case 6:
 				cout << "Program will now terminate . . ." << endl;
@@ -98,7 +104,10 @@ int main()
 				break;
 			};
 		} while (mainMenu == 1);
+
+		delete userLibrary;
 	} while (loginScreen == true);
+
 
 	return 0;
 }
@@ -247,7 +256,7 @@ void storeMenu()
 /*********************************************************************************
 								  Register Menu
 *********************************************************************************/
-void registerMenu(BST* Playlist)
+void registerMenu(List* Playlist, int& numSongs)
 {
 	system("cls");
 	string newName, newArtist;
@@ -280,7 +289,7 @@ void registerMenu(BST* Playlist)
 				  cout << "Song Artist: ";
 				  getline(cin, newArtist);
 				  
-				  if (Store.find(newName, newArtist) == 1 && Playlist->search(newName) == 0)
+				  if (Store.find(newName, newArtist) == 1)
 				  {
 					  L->insert_tail(Store.findAuthor(newName, newArtist));
 					  cout << "Song was added to ticket . . ." << endl << endl;
@@ -315,9 +324,11 @@ void registerMenu(BST* Playlist)
 
 					  while (!L->is_empty())
 					  {
-						  Playlist->insert(L->get_head_title(), L->get_head_artist(), L->get_head_album(), L->get_head_genre(), L->get_head_year(), L->get_head_price(), 1);
+						  Playlist->insert_tail(L->get_head_title(), L->get_head_artist(), L->get_head_album(), L->get_head_genre(), L->get_head_year(), L->get_head_price(), ++numSongs);
 						  L->delete_head();
 					  }
+
+					  Playlist->saveLibrary(newUser[currentUser].getUsername());
 				  }
 				  else
 				  {
@@ -343,11 +354,45 @@ void registerMenu(BST* Playlist)
 /*********************************************************************************
 								  Playlist Menu
 *********************************************************************************/
-void playlistMenu(BST* Playlist)
+void playlistMenu(List* Library)
 {
-	Playlist->inOrderPrint();
+	int mainMenu = 1;
+	int option;
+	Library->setCursor();
 
-	system("pause");
+	do
+	{
+		system("cls");
+		Library->printIndex();
+
+		cout << "1. Move Up" << endl
+			<< "2. Move Down" << endl
+			<< "3. Play Song" << endl
+			<< "4. Return to Main Menu" << endl;
+		cout << "Select an option (1-4): ";
+		cin >> option;
+		cin.ignore();
+
+		switch (option) 
+		{
+		case 1:
+			Library->moveUp();
+			break;
+		case 2:
+			Library->moveDown();
+			break;
+		case 3:
+			Library->play();
+			system("pause");
+			break;
+		case 4:
+			mainMenu = 0;
+			break;
+		default:
+			break;
+		}
+
+	} while (mainMenu == 1);
 }
 
 /*********************************************************************************

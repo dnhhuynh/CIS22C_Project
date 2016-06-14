@@ -120,13 +120,13 @@ void HashTable::removeItem(string name, string key)
 
 void HashTable::printTable()
 {
-	cout << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(20) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
+	cout << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(45) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
 
 	for (int i = 0; i < TABLE_SIZE; i++)
 	{
 		if (Table[i]->title != "")
 		{
-			cout << left << setw(40) << Table[i]->title << setw(30) << Table[i]->artist << setw(20) << Table[i]->album << setw(20) << Table[i]->genre << setw(10) << Table[i]->year << setw(6) << right << Table[i]->price << endl;
+			cout << left << setw(40) << Table[i]->title << setw(30) << Table[i]->artist << setw(45) << Table[i]->album << setw(20) << Table[i]->genre << setw(10) << Table[i]->year << setw(6) << right << Table[i]->price << endl;
 		}
 
 		if (Table[i]->next != NULL)
@@ -164,7 +164,7 @@ void HashTable::printBucket(int index)
 
 	while (temp != NULL)
 	{
-		cout << left << setw(40) << temp->title << setw(30) << temp->artist << setw(20) << temp->album << setw(20) << temp->genre << setw(10) << temp->year << setw(6) << right << temp->price << endl;
+		cout << left << setw(40) << temp->title << setw(30) << temp->artist << setw(45) << temp->album << setw(20) << temp->genre << setw(10) << temp->year << setw(6) << right << temp->price << endl;
 		temp = temp->next;
 	}
 }
@@ -217,7 +217,7 @@ void HashTable::loadStore(string emptyStr)
 	int newYear;
 
 	ifstream database;
-	database.open("StoreTest.txt");
+	database.open("Store.txt");
 
 	if (database.fail())
 	{
@@ -249,7 +249,7 @@ void HashTable::loadStore(string emptyStr)
 void HashTable::saveStore()
 {
 	ofstream newDatabase;
-	newDatabase.open("StoreTest.txt");
+	newDatabase.open("Store.txt");
 
 	for (int i = 0; i < TABLE_SIZE; i++)
 	{

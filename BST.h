@@ -285,7 +285,7 @@ void BST::insert_value(Nodeptr root, string newName, string newArtist, string ne
 
 void BST::inOrderPrint()
 {
-	cout << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(20) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
+	cout << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(45) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
 	inOrderPrint(root);
 	cout << endl;
 }
@@ -295,7 +295,7 @@ void BST::inOrderPrint(Nodeptr root)
 	if (root != NULL)
 	{
 		inOrderPrint(root->left);
-		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(20) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
+		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(45) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
 		inOrderPrint(root->right);
 	}
 }
@@ -309,7 +309,7 @@ void BST::preOrderPrint(Nodeptr root)
 {
 	if (root != NULL)
 	{
-		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(20) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
+		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(45) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
 		preOrderPrint(root->left);
 		preOrderPrint(root->right);
 	}
@@ -326,7 +326,7 @@ void BST::postOrderPrint(Nodeptr root)
 	{
 		postOrderPrint(root->left);
 		postOrderPrint(root->right);
-		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(20) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
+		cout << left << setw(40) << root->title << setw(30) << root->artist << setw(45) << root->album << setw(20) << root->genre << setw(10) << root->year << setw(6) << right << root->price << endl;
 	}
 }
 
@@ -337,7 +337,7 @@ void BST::sort(string emptyStr, int option)
 	int newYear;
 
 	ifstream database;
-	database.open("StoreTest.txt");
+	database.open("Store.txt");
 
 	if (database.fail())
 	{

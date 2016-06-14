@@ -1,68 +1,269 @@
-2016-06-13 21:03:09
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
-Death of a Bachelor                     Panic! at the Disco           Alternative Rock    Fueled by Ramen     2016        1.29
+2016-06-14 08:15:03
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
 
 
-                                                                                          subtotal: 5.16
-                                                                                               tax: 0.4515
-                                                                                             total: 5.6115
-                                                                                           payment: 10
-                                                                                            change: 4.3885
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
 
-2016-06-13 21:19:29
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
-
-
-                                                                                          subtotal: 2.58
-                                                                                               tax: 0.22575
-                                                                                             total: 2.80575
-                                                                                           payment: 10
-                                                                                            change: 7.19425
-
-2016-06-13 21:19:46
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Death of a Bachelor                     Panic! at the Disco           Alternative Rock    Fueled by Ramen     2016        1.29
+2016-06-14 08:24:57
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
 
 
-                                                                                          subtotal: 5.16
-                                                                                               tax: 0.4515
-                                                                                             total: 5.6115
-                                                                                           payment: 20
-                                                                                            change: 14.3885
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
 
-2016-06-13 21:28:50
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
-
-
-                                                                                          subtotal: 2.58
-                                                                                               tax: 0.22575
-                                                                                             total: 2.80575
-                                                                                           payment: 10
-                                                                                            change: 7.19425
-
-2016-06-13 22:38:58
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
-Death of a Bachelor                     Panic! at the Disco           Alternative Rock    Fueled by Ramen     2016        1.29
+2016-06-14 08:26:16
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
 
 
-                                                                                          subtotal: 5.16
-                                                                                               tax: 0.45
-                                                                                             total: 5.61
-                                                                                           payment: 10.10
-                                                                                            change: 4.49
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
 
-2016-06-13 22:41:47
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
+2016-06-14 08:35:16
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
 
 
-2016-06-13 22:42:23
-Song Title:                             Artist:                       Album Title:        Genre:              Year:     Price: 
-Ain't It Fun                            Paramore                      Alternative Rock    Fueled by Ramen     2013        1.29
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:37:43
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:40:11
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:44:06
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:50:04
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:51:57
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 08:53:52
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+Ain't It Fun                            Paramore                      Paramore                                     Alternative Rock    2013        0.69
+
+
+                                                                                          subtotal:       3.96
+                                                                                               tax:       0.35
+                                                                                             total:       4.31
+                                                                                           payment:      10.00
+                                                                                            change:       5.69
+
+2016-06-14 09:34:06
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:35:30
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:39:14
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:47:30
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:50:05
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:53:11
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:57:50
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 09:58:11
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+Death of a Bachelor                     Panic! at the Disco           Death of a Bachelor                          Alternative Rock    2016        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:00:37
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:03:12
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:10:54
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:13:33
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:17:24
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
+
+
+                                                                                          subtotal:       2.58
+                                                                                               tax:       0.23
+                                                                                             total:       2.81
+                                                                                           payment:      10.00
+                                                                                            change:       7.19
+
+2016-06-14 10:18:32
+Song Title:                             Artist:                       Album Title:                                 Genre:              Year:     Price: 
+The A Team                              Ed Sheeran                    +                                            Pop                 2011        1.29
 
 
                                                                                           subtotal:       2.58

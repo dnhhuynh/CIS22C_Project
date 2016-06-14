@@ -13,12 +13,13 @@ protected:
 	struct Node
 	{
 		string title, artist, genre, album;
-		int year;
+		int year, index;
 		double price;
 		Node* next;
 		Node() : title(""), artist(""), genre(""), album(""), year(0), price(0.0), next(NULL){}
-		Node(Node* temp) : title(temp->title), artist(temp->artist), genre(temp->genre), album(temp->album), year(temp->year), price(temp->price), next(NULL){}
-		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), next(NULL){}
+		Node(Node* temp) : title(temp->title), artist(temp->artist), genre(temp->genre), album(temp->album), year(temp->year), price(temp->price), index(0), next(NULL){}
+		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), index(0), next(NULL){}
+		Node(string ntitle, string nartist, string nalbum, string ngenre, int nyear, double nprice, int index) : title(ntitle), artist(nartist), genre(ngenre), album(nalbum), year(nyear), price(nprice), index(index), next(NULL){}
 	};
 
 	typedef struct Node* Nodeptr;
