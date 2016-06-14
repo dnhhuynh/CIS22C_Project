@@ -6,16 +6,28 @@
 #include <string>
 #include "List.h"
 #include <ctime>
+#include "User.h"
+#include <vector>
+#include <conio.h>
 
 using namespace std;
-
-string emptyStr;
 
 void storeMenu();
 void registerMenu(BST*);
 void playlistMenu(BST*);
 void logMenu();
 string currentDateTime();
+int sizeOfUsers();
+int login();
+void loadUsers();
+
+string emptyStr;
+int validLogin;
+int userSize = sizeOfUsers();
+User* newUser = new User[userSize];
+User* tempUser = new User;
+int currentUser;
+
 
 /*********************************************************************************
 								    Main Menu
@@ -24,46 +36,69 @@ int main()
 {
 	int option, mainMenu = 1;
 	BST* Playlist = new BST();
+	bool isValid = false, loginScreen = true;
+	loadUsers();
 
 	do
 	{
-		system("cls");
-		cout << "1. View Music Store" << endl
-			<< "2. Purchase Songs" << endl
-			<< "3. Manage Playlists" << endl
-			<< "4. View Transaction Log" << endl
-			<< "5. Log Out" << endl
-			<< "6. Exit Program" << endl;
-		cout << "Select an option (1-6): ";
-		cin >> option;
-		cin.ignore();
-
-		switch (option)
+		do 
 		{
-		case 1:
-			storeMenu();
-			break;
-		case 2:
-			registerMenu(Playlist);
-			break;
-		case 3:
-			playlistMenu(Playlist);
-			break;
-		case 4:
-			logMenu();
-			break;
-		case 5:
-			break;
-		case 6:
-			cout << "Program will now terminate . . ." << endl;
-			system("pause");
-			mainMenu = 0;
-			break;
-		default:
-			cout << "Option selected isn't valid . . ." << endl;
-			break;
-		};
-	} while (mainMenu == 1);
+			validLogin = login();
+			switch (validLogin)
+			{
+			case 1:
+				isValid = true;
+				break;
+			case 2:
+			{
+					  cout << endl << endl << setw(50) << "Invalid login details." << endl;
+					  system("PAUSE");
+					  break;
+			}
+			}
+		} while (isValid == false);
+
+		do
+		{
+			system("cls");
+			cout << "1. View Music Store" << endl
+				<< "2. Purchase Songs" << endl
+				<< "3. Manage Playlists" << endl
+				<< "4. View Transaction Log" << endl
+				<< "5. Log Out" << endl
+				<< "6. Exit Program" << endl;
+			cout << "Select an option (1-6): ";
+			cin >> option;
+			cin.ignore();
+
+			switch (option)
+			{
+			case 1:
+				storeMenu();
+				break;
+			case 2:
+				registerMenu(Playlist);
+				break;
+			case 3:
+				playlistMenu(Playlist);
+				break;
+			case 4:
+				logMenu();
+				break;
+			case 5:
+				mainMenu = 0;
+				break;
+			case 6:
+				cout << "Program will now terminate . . ." << endl;
+				system("pause");
+				return 0;
+				break;
+			default:
+				cout << "Option selected isn't valid . . ." << endl;
+				break;
+			};
+		} while (mainMenu == 1);
+	} while (loginScreen == true);
 
 	return 0;
 }
@@ -78,7 +113,7 @@ void storeMenu()
 	int newYear;
 
 	system("cls");
-	int option, mainMenu = 1;
+	int option, subMenu = 1;
 	HashTable Store;
 
 	Store.loadStore(emptyStr);
@@ -152,47 +187,61 @@ void storeMenu()
 			break;
 		case 7:
 		{
-				  cout << "Song Title: ";
-				  getline(cin, newName);
-				  cout << "Song Artist: ";
-				  getline(cin, newArtist);
-				  cout << "Song Album: ";
-				  getline(cin, newAlbum);
-				  cout << "Song Genre: ";
-				  getline(cin, newGenre);
-				  cout << "Year of Release: ";
-				  cin >> newYear;
-				  cout << "Song Price: ";
-				  cin >> newPrice;
-				  cin.ignore();
-				  Store.addItem(newName, newArtist, newAlbum, newGenre, newYear, newPrice);
-				  Store.saveStore();
-				  system("cls");
+				  if (newUser[currentUser].getAdmin() != 1)
+				  {
+					  cout << "User is not an administrator . . ." << endl << endl;
+					  break;
+				  }
+				  else
+				  {
+					  cout << "Song Title: ";
+					  getline(cin, newName);
+					  cout << "Song Artist: ";
+					  getline(cin, newArtist);
+					  cout << "Song Album: ";
+					  getline(cin, newAlbum);
+					  cout << "Song Genre: ";
+					  getline(cin, newGenre);
+					  cout << "Year of Release: ";
+					  cin >> newYear;
+					  cout << "Song Price: ";
+					  cin >> newPrice;
+					  cin.ignore();
+					  Store.addItem(newName, newArtist, newAlbum, newGenre, newYear, newPrice);
+					  Store.saveStore();
+				  }
 		}
+			system("cls");
 			break;
 		case 8:
 		{
-				  cout << "Song Title: ";
-				  getline(cin, newName);
-				  cout << "Song Artist: ";
-				  getline(cin, newArtist);
-				  Store.removeItem(newName, newArtist);
-				  Store.saveStore();
-				  system("pause"); 
-				  system("cls");
+				  if (newUser[currentUser].getAdmin() != 1)
+				  {
+					  cout << "User is not an administrator . . ." << endl << endl;
+					  break;
+				  }
+				  else
+				  {
+					  cout << "Song Title: ";
+					  getline(cin, newName);
+					  cout << "Song Artist: ";
+					  getline(cin, newArtist);
+					  Store.removeItem(newName, newArtist);
+					  Store.saveStore();
+				  }
 		}
+			system("cls");
 			break;
 		case 10:
 		{
-				  mainMenu = 0;
-				  system("pause");
+				  subMenu = 0;
 		}
 			break;
 		default:
 			cout << "Option selected isn't valid . . ." << endl;
 			break;
 		};
-	} while (mainMenu == 1);
+	} while (subMenu == 1);
 }
 
 /*********************************************************************************
@@ -335,4 +384,98 @@ string currentDateTime()
 	strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
 
 	return buf;
+}
+
+void loadUsers()
+{
+	ifstream user;
+	int i = 0;
+	string temp;
+	int tempInt;
+	user.open("username.txt");
+	if (user.fail())
+	{
+		cout << "Username Database was not found. Program will not terminate . . . " << endl << endl;
+		exit(1);
+	}
+
+	while (i < userSize)
+	{
+		user >> temp;
+		tempUser->setUsername(temp);
+		user >> temp;
+		tempUser->setPassword(temp);
+		user >> tempInt;
+		tempUser->setAdmin(tempInt);
+
+		newUser[i] = *tempUser;
+		i++;
+	}
+}
+
+int sizeOfUsers() 
+{
+	ifstream inputFile;
+	string temp;
+	int counter = 0;
+	inputFile.open("username.txt");
+
+
+	while (getline(inputFile, temp)) 
+	{
+		counter++;
+	}
+	inputFile.close();
+
+	return counter;
+}
+
+int login() 
+{
+	system("CLS");
+
+	string username, password, adminCode;
+	cout << endl << endl << endl << endl << endl << endl << endl;
+	char input = ' ';
+	cout << setw(40) << "Username: ";
+	cin >> username;
+	cout << setw(40) << "Password: ";
+
+	int count = 0;
+
+	while ((input != 13)) 
+	{
+		input = _getch();
+		if ((input != 13)) 
+		{
+			if (input != '\b') 
+			{
+				cout << '*';
+				password += input;
+				count++;
+			}
+			else if (input == '\b' && count > 0) 
+			{
+				cout << '\b' << ' ' << '\b';
+				--count;
+				password = password.substr(0, password.length() - 1);
+			}
+			else if (input == '\b' && count <= 0) 
+			{
+				count = 0;
+				cout << ' ' << '\b';
+			}
+		}
+	}
+
+	for (int i = 0; i < userSize; i++) 
+	{
+		if (username == newUser[i].getUsername() && password == newUser[i].getPassword()) 
+		{
+			currentUser = i;
+			return 1;
+		}
+	}
+
+	return 2;
 }
