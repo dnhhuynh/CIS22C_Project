@@ -12,6 +12,7 @@ Lab 1 Description: To utilize link lists to store data, modify that data, and re
 #include <iomanip>
 #include <string>
 #include "Hashtable.h"
+#include <fstream>
 
 //Utilizing Standard Namespace
 using namespace std;
@@ -32,6 +33,7 @@ public:
 	void insert_head(string name, string artist, string album, string genre, int year, double price);						//Member Function to create a node with data at the beginning of the list
 	void insert_tail(Nodeptr temp);					//Member Function to create a node with data at the end of the list
 	void print();									//Member Function to print out all the data within each node in order
+	void print(ofstream& log);
 	string get_head_title() { return head->title; }
 	string get_head_artist() { return head->artist; }
 	string get_head_album() { return head->album; }

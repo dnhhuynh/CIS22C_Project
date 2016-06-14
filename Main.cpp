@@ -1,9 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Hashtable.h"
 #include "BST.h"
 #include <iomanip>
 #include <string>
 #include "List.h"
+#include <ctime>
 
 using namespace std;
 
@@ -13,6 +15,7 @@ void storeMenu();
 void registerMenu(BST*);
 void playlistMenu(BST*);
 void logMenu();
+string currentDateTime();
 
 /*********************************************************************************
 								    Main Menu
@@ -28,7 +31,7 @@ int main()
 		cout << "1. View Music Store" << endl
 			<< "2. Purchase Songs" << endl
 			<< "3. Manage Playlists" << endl
-			<< "4. View Transaction Logs" << endl
+			<< "4. View Transaction Log" << endl
 			<< "5. Log Out" << endl
 			<< "6. Exit Program" << endl;
 		cout << "Select an option (1-6): ";
@@ -197,11 +200,14 @@ void storeMenu()
 *********************************************************************************/
 void registerMenu(BST* Playlist)
 {
+	system("cls");
 	string newName, newArtist;
 	double payment;
 	int mainMenu = 1, option;
 	HashTable Store;
+	ofstream log;
 	List* L = new List();
+	log.open("log.txt", ios::app);
 
 	Store.loadStore(emptyStr);
 	Store.printTable();
@@ -225,13 +231,14 @@ void registerMenu(BST* Playlist)
 				  cout << "Song Artist: ";
 				  getline(cin, newArtist);
 				  
-				  if (Store.find(newName, newArtist) == 1)
+				  if (Store.find(newName, newArtist) == 1 && Playlist->search(newName) == 0)
 				  {
 					  L->insert_tail(Store.findAuthor(newName, newArtist));
+					  cout << "Song was added to ticket . . ." << endl << endl;
 				  }
 				  else
 				  {
-					  cout << "Song was not found in the Musc Store . . ." << endl;
+					  cout << "Song was not found in the Music Store . . ." << endl << endl;
 				  }
 		}
 			break;
@@ -239,22 +246,29 @@ void registerMenu(BST* Playlist)
 		{
 				  if (!L->is_empty())
 				  {
-					  L->print();
-					  cout << right << setw(160) << "subtotal: " << L->getSubtotal() << endl;
-					  cout << right << setw(160) << "tax: " << L->getTax() << endl;
-					  cout << right << setw(160) << "total: " << L->getTotal() << endl;
+					  cout << currentDateTime() << endl;
+					  log << currentDateTime() << endl;
+					  L->print(); 
+					  L->print(log);
+					  cout << right << setw(100) << setprecision(2) << fixed <<  "subtotal: " << setw(10) <<L->getSubtotal() << endl;
+					  cout << right << setw(100) << "tax: " << setw(10) << L->getTax() << endl;
+					  cout << right << setw(100) << "total: " << setw(10) << L->getTotal() << endl;
 					  cout << "Cash Payment Amount: ";
 					  cin >> payment;
 					  cin.ignore();
-					  cout << right << setw(160) << "change: " << L->getChange(payment) << endl;
+					  cout << right << setw(100) << "change: " << setw(10) << L->getChange(payment) << endl;
+
+					  log << right << setw(100) << setprecision(2) << fixed << "subtotal: " << setw(10) << L->getSubtotal() << endl;
+					  log << right << setw(100) << "tax: " << setw(10) << L->getTax() << endl;
+					  log << right << setw(100) << "total: " << setw(10) << L->getTotal() << endl;
+					  log << right << setw(100) << "payment: " << setw(10) << payment << endl;
+					  log << right << setw(100) << "change: " << setw(10) << L->getChange(payment) << endl << endl;
 
 					  while (!L->is_empty())
 					  {
 						  Playlist->insert(L->get_head_title(), L->get_head_artist(), L->get_head_album(), L->get_head_genre(), L->get_head_year(), L->get_head_price(), 1);
 						  L->delete_head();
 					  }
-
-					  delete L;
 				  }
 				  else
 				  {
@@ -265,7 +279,6 @@ void registerMenu(BST* Playlist)
 		case 3:
 		{
 				  mainMenu = 0;
-				  system("pause");
 		}
 			break;
 		default:
@@ -273,6 +286,9 @@ void registerMenu(BST* Playlist)
 			break;
 		}
 	} while (mainMenu == 1);
+
+	delete L;
+	log.close();
 }
 
 /*********************************************************************************
@@ -290,5 +306,33 @@ void playlistMenu(BST* Playlist)
 *********************************************************************************/
 void logMenu()
 {
+	string line;
 
+	ifstream log;
+	log.open("log.txt");
+	if (log.fail())
+	{
+		cout << "Log is current empty . . . " << endl;
+		return;
+	}
+
+	cout << endl << "Transaction Log: " << endl;
+	while (!log.eof())
+	{
+		getline(log, line);
+		cout << line << endl;
+	}
+
+	system("pause");
+}
+
+string currentDateTime() 
+{
+	time_t     now = time(0);
+	struct tm  tstruct;
+	char       buf[80];
+	tstruct = *localtime(&now);
+	strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
+
+	return buf;
 }

@@ -51,6 +51,20 @@ void List::print()
 	cout << endl << endl;
 };
 
+void List::print(ofstream& log)
+{
+	Nodeptr temp = head; //create a temporary iterator
+	log << left << setw(40) << "Song Title: " << setw(30) << "Artist: " << setw(20) << "Album Title: " << setw(20) << "Genre: " << setw(10) << "Year: " << setw(6) << "Price: " << endl;
+
+	while (temp != NULL)
+	{
+		log << left << setw(40) << temp->title << setw(30) << temp->artist << setw(20) << temp->album << setw(20) << temp->genre << setw(10) << temp->year << setw(6) << right << temp->price << endl;
+		temp = temp->next;
+	}
+
+	log << endl << endl;
+};
+
 /*
 Description: Creates a new node and moves it to the front of the list
 Pre: Takes in data as a parameter

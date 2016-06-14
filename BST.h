@@ -49,6 +49,7 @@ private:
 	//private helper function for postOrderPrint
 	//recursively prints tree values according in postorder
 
+	int search(Nodeptr root, string name);
 
 public:
 	BST();
@@ -82,6 +83,8 @@ public:
 	//more functions to be added here!
 
 	void sort(string emptyStr, int option);
+
+	int search(string name);
 };
 
 BST::BST()
@@ -363,4 +366,53 @@ void BST::sort(string emptyStr, int option)
 	database.close();
 }
 
+int BST::search(string name)
+{
+	if (name == root->title)
+	{
+		return 1;
+	}
+	else if (root == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return search(root, name);
+	}
+}
+
+int BST::search(Nodeptr root, string name)
+{
+	if (name == root->title)
+	{
+		return 1;
+	}
+	else if (name < root->title)
+	{
+		if (root->left == NULL)
+		{
+			return 0;
+		}
+		else
+		{
+			return search(root->left, name);
+		}
+	}
+	else if (name > root->title)
+	{
+		if (root->right == NULL)
+		{
+			return 0;
+		}
+		else
+		{
+			return search(root->right, name);
+		}
+	}
+	else
+	{
+		return 0;
+	}
+}
 #endif
