@@ -9,6 +9,7 @@
 #include "User.h"
 #include <vector>
 #include <conio.h>
+#include <stdlib.h>
 #define KEY_UP 72
 #define KEY_DOWN 80
 
@@ -65,6 +66,7 @@ int main()
 
 		do
 		{
+			mainMenu = 1;
 			system("cls");
 			cout << "1. View Music Store" << endl
 				<< "2. Purchase Songs" << endl
@@ -365,27 +367,25 @@ void playlistMenu(List* Library)
 		system("cls");
 		Library->printIndex();
 
-		cout << "1. Move Up" << endl
-			<< "2. Move Down" << endl
-			<< "3. Play Song" << endl
-			<< "4. Return to Main Menu" << endl;
+		cout << "Use the Arrow keys to scroll down the playlist . . ." << endl
+			<< "1. Play Song" << endl
+			<< "2. Return to Main Menu" << endl;
 		cout << "Select an option (1-4): ";
-		cin >> option;
-		cin.ignore();
+		option = _getch();
 
 		switch (option) 
 		{
-		case 1:
+		case KEY_UP:
 			Library->moveUp();
 			break;
-		case 2:
+		case KEY_DOWN:
 			Library->moveDown();
 			break;
-		case 3:
+		case 1:
 			Library->play();
 			system("pause");
 			break;
-		case 4:
+		case 2:
 			mainMenu = 0;
 			break;
 		default:
